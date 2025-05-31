@@ -20,7 +20,7 @@ namespace Domain
         public Ciudad(string nombre)
         {
             Nombre = nombre;
-            ClimaActual = new CondicionMeteorologica("ninguna",0, 0); // Inicializa con valores por defecto
+            ClimaActual = new CondicionMeteorologica("Despejado",20, 50); // Inicializa con valores por defecto
         }
 
         public void CambiarClima(CondicionMeteorologica nuevaCondicion)

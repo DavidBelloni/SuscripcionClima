@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    // Interfaz Notificadora 
+    // Interfaz que Implementa el Sujeto (Observable) que en este caso seria la "Ciudad"
     public interface ISujeto
     {
         void Suscribir(IObservador usuario);

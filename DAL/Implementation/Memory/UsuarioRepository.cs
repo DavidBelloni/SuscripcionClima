@@ -10,6 +10,8 @@ namespace DAL.Implementation.Memory
 {
     public class UsuarioRepository : IUsuarioRepository
     {
+        List<Usuario> usuarios = new List<Usuario>();
+
         #region
         // Instancia privada estatica y de solo lectura para el Singleton
         private static readonly UsuarioRepository instance = new UsuarioRepository();
@@ -25,8 +27,6 @@ namespace DAL.Implementation.Memory
         {
         }
         #endregion
-
-        List<Usuario> usuarios = new List<Usuario>();
 
         public void Add(Usuario usuario)
         {

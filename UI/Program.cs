@@ -12,11 +12,6 @@ using System.Xml.Linq;
 
 namespace UI
 {
-    //UI: Interfaz de usuario.Consola para ingresar comandos.
-    //DOMAIN: Entidades y lógica del dominio (Ciudad, Usuario, CondicionClimatica, interfaces Observer/Subject).
-    //BLL: Lógica de negocio(gestiona suscripciones, cambios de clima, etc).
-    //DAL: Acceso a datos(simulado con listas en memoria o archivos simples).
-
     internal class Program
     {
         static void Main(string[] args)
@@ -42,6 +37,7 @@ namespace UI
             Console.WriteLine("Creamos los Usuarios:");
             Usuario david = new Usuario("David");
             Usuario juan = new Usuario("Juan");
+
             Console.WriteLine($" -{david.Nombre}");
             Console.WriteLine($" -{juan.Nombre} \n");
 
@@ -56,6 +52,11 @@ namespace UI
             climaService.SuscribirUsuarioACiudad(juan, cordoba);
             Console.WriteLine($" -{david.Nombre} suscripto a -> Ciudad: {buenosAires.Nombre}");
             Console.WriteLine($" -{juan.Nombre} suscripto a -> Ciudad: {cordoba.Nombre} \n");
+
+            // Clima Actual en las Ciudades
+            Console.WriteLine("Clima Actual en las Ciudades:\n");
+            Console.WriteLine($" -Ciudad: {buenosAires.Nombre} Clima: {buenosAires.ClimaActual.Nombre} {buenosAires.ClimaActual.Temperatura}ºC {buenosAires.ClimaActual.Humedad}%");
+            Console.WriteLine($" -Ciudad: {cordoba.Nombre} Clima: {cordoba.ClimaActual.Nombre} {cordoba.ClimaActual.Temperatura}ºC {cordoba.ClimaActual.Humedad}% \n");
 
 
             // Cambiamos las condiciones climáticas de las ciudades
@@ -83,7 +84,7 @@ namespace UI
             climaService.CambiarCondicionClimatica(cordoba, clima3);
 
             
-            Console.WriteLine("Presiona cualquier tecla para salir...");
+            Console.WriteLine("\n Presiona cualquier tecla para salir...");
             Console.ReadKey();
 
 
