@@ -42,9 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\IClimaRepository.cs" />
+    <Compile Include="Contracts\ICiudadRepository.cs" />
+    <Compile Include="Contracts\IUsuarioRepository.cs" />
+    <Compile Include="Implementation\Memory\CiudadRepository.cs" />
     <Compile Include="Implementation\Memory\ClimaRepository.cs" />
     <Compile Include="Factory\FactoryRepository.cs" />
+    <Compile Include="Implementation\Memory\UsuarioRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

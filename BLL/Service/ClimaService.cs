@@ -1,4 +1,5 @@
 ﻿using BLL.Interface;
+using DAL.Contracts;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -10,8 +11,14 @@ namespace BLL.Service
 {
     public class ClimaService : IClimaService
     {
-        private readonly List<Ciudad> ciudades = new List<Ciudad>();
-        private readonly List<Usuario> usuarios = new List<Usuario>();
+        private readonly ICiudadRepository ciudadRepository;
+        private readonly IUsuarioRepository usuarioRepository;
+
+        public ClimaService(ICiudadRepository ciudadRepository, IUsuarioRepository usuarioRepository)
+        {
+            this.ciudadRepository = ciudadRepository;
+            this.usuarioRepository = usuarioRepository;
+        }
 
         public void CambiarCondicionClimatica(Ciudad ciudad, CondicionMeteorologica nuevaCondicion)
         {
@@ -21,14 +28,14 @@ namespace BLL.Service
         public Ciudad CrearCiudad(string nombre)
         {
             Ciudad ciudad = new Ciudad(nombre);
-            ciudades.Add(ciudad);
+            ciudadRepository.Add(ciudad);
             return ciudad;
         }
 
         public Usuario CrearUsuario(string nombre)
         {
             Usuario usuario = new Usuario(nombre);
-            usuarios.Add(usuario);
+            usuarioRepository.Add(usuario);
             return usuario;
         }
         public void SuscribirUsuarioACiudad(Usuario usuario, Ciudad ciudad)
@@ -49,12 +56,12 @@ namespace BLL.Service
 
         public List<Ciudad> ListarCiudades()
         {
-            return ciudades;
+            return ciudadRepository.GetAll();
         }
 
         public List<Usuario> ListarUsuarios()
         {
-            return usuarios;
+            return usuarioRepository.GetAll();
         }
     }
 }

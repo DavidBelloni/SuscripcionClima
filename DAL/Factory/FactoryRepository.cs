@@ -18,7 +18,7 @@ namespace DAL.Factory
             backendType = int.Parse(ConfigurationManager.AppSettings["BackendType"]);
         }
 
-        public static IClimaRepository ClimaRepository
+        public static ICiudadRepository ClimaRepository
         {
             get
             {

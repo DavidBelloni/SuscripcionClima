@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace DAL.Contracts
 {
-    public interface IClimaRepository
+    public interface IUsuarioRepository
     {
-        void SuscribirUsuario(Usuario usuario, Ciudad ciudad);
-        void DesuscribirUsuario();
-        
+        void Add(Usuario usuario);
+        List<Usuario> GetAll();
+        Usuario GetByName(string name);
     }
 }

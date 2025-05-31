@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Implementation.Memory
 {
-    public class ClimaRepository : IClimaRepository
+    public class ClimaRepository : ICiudadRepository
     {
         private List<Usuario> usuarios = new List<Usuario>();
 
