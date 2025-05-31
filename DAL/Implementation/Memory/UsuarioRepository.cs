@@ -10,6 +10,22 @@ namespace DAL.Implementation.Memory
 {
     public class UsuarioRepository : IUsuarioRepository
     {
+        #region
+        // Instancia privada estatica y de solo lectura para el Singleton
+        private static readonly UsuarioRepository instance = new UsuarioRepository();
+
+        // Metodo publico con acceso global
+        public static UsuarioRepository Current
+        {
+            get { return instance; }
+        }
+
+        // Constructor privado para evitar instanciación externa
+        private UsuarioRepository()
+        {
+        }
+        #endregion
+
         List<Usuario> usuarios = new List<Usuario>();
 
         public void Add(Usuario usuario)

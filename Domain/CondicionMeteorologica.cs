@@ -10,13 +10,14 @@ namespace Domain
     // Es un objeto de Interes para los usuarios
     public class CondicionMeteorologica
     {
-
+        public string Nombre { get; set; }
         public int Temperatura { get; private set; }
         public int Humedad { get; private set; }
 
 
-        public CondicionMeteorologica(int temperatura, int humedad)
+        public CondicionMeteorologica(string nombre, int temperatura, int humedad)
         {
+            Nombre = nombre;
             Temperatura = temperatura;
             Humedad = humedad;
         }

@@ -1,5 +1,6 @@
 ﻿using BLL.Interface;
 using DAL.Contracts;
+using DAL.Factory;
 using Domain;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,10 @@ namespace BLL.Service
         private readonly ICiudadRepository ciudadRepository;
         private readonly IUsuarioRepository usuarioRepository;
 
-        public ClimaService(ICiudadRepository ciudadRepository, IUsuarioRepository usuarioRepository)
+        public ClimaService()
         {
-            this.ciudadRepository = ciudadRepository;
-            this.usuarioRepository = usuarioRepository;
+            ciudadRepository = FactoryRepository.CiudadRepository;
+            usuarioRepository = FactoryRepository.UsuarioRepository;
         }
 
         public void CambiarCondicionClimatica(Ciudad ciudad, CondicionMeteorologica nuevaCondicion)

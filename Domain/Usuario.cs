@@ -23,7 +23,7 @@ namespace Domain
 
         public void Actualizar(Ciudad ciudad, CondicionMeteorologica nuevaCondicion)
         {
-            Console.WriteLine($"{Nombre} ha sido notificado: El clima en {ciudad.Nombre} cambió a Humedad:({nuevaCondicion.Humedad}) y ({nuevaCondicion.Temperatura}°C)");
+            Console.WriteLine($"{Nombre} ha sido notificado: El clima en {ciudad.Nombre} cambió a {nuevaCondicion.Temperatura}°C {nuevaCondicion.Humedad}%");
         }
     }
 }
