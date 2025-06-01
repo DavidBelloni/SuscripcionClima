@@ -41,8 +41,8 @@ namespace UI
             Console.WriteLine($" -{david.Nombre}");
             Console.WriteLine($" -{juan.Nombre} \n");
 
-            // Registramos los usuarios en el servicio del clima
-            Console.WriteLine("Registramos los Usuarios en el Servicio del Clima \n");
+            // Registramos los usuarios en la DAL
+            Console.WriteLine("Guardamos los Usuarios en la DAL \n");
             climaService.CrearUsuario(david.Nombre);
             climaService.CrearUsuario(juan.Nombre);
 

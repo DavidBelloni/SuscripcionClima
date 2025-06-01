@@ -10,6 +10,8 @@ namespace DAL.Contracts
     public interface IUsuarioRepository
     {
         void Add(Usuario usuario);
+
+        void ActualizarUsuario(Usuario usuario);
         List<Usuario> GetAll();
         Usuario GetByName(string name);
     }

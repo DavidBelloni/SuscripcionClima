@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    // Interfaz que implementan los Observadores (Usuarios)
+    // Interfaz que implementan los Suscriptores (Usuarios) para recibir actualizaciones
     public interface IObservador
     {
         void Actualizar(Ciudad ciudad, CondicionMeteorologica nuevaCondicion);

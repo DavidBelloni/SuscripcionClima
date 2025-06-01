@@ -41,17 +41,18 @@ namespace BLL.Service
         }
         public void SuscribirUsuarioACiudad(Usuario usuario, Ciudad ciudad)
         {
-            if (usuario != null && ciudad != null)
-            {
-                ciudad.Suscribir(usuario);
-            }
+            usuario.SuscribirCiudad(ciudad);
+            usuarioRepository.ActualizarUsuario(usuario);
+
+            ciudad.SuscribirUsuario(usuario);
+            ciudadRepository.ActualizarCiudad(ciudad);
         }
 
         public void DesuscribirUsuarioDeCiudad(Usuario usuario, Ciudad ciudad)
         {
             if  (usuario != null && ciudad != null)
             {
-                ciudad.Desuscribir(usuario);
+                ciudad.DesuscribirUsuario(usuario);
             }
         }
 

@@ -10,6 +10,8 @@ namespace DAL.Contracts
     public interface ICiudadRepository
     {
         void Add(Ciudad ciudad);
+
+        void ActualizarCiudad(Ciudad ciudad);
         List<Ciudad> GetAll();
         Ciudad GetByName(string nombre);
 

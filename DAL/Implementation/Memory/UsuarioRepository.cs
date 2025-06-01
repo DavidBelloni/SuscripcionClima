@@ -33,6 +33,19 @@ namespace DAL.Implementation.Memory
             usuarios.Add(usuario);
         }
 
+        public void ActualizarUsuario(Usuario usuario)
+        {
+            var usuarioExistente = usuarios.FirstOrDefault(u => u.Nombre == usuario.Nombre);
+            if (usuarioExistente != null)
+            {
+                usuarioExistente.CiudadesSuscritas = usuario.CiudadesSuscritas;
+            }
+            else
+            {
+                throw new Exception("Usuario no encontrado");
+            }
+        }
+
         public List<Usuario> GetAll()
         {
             return usuarios;

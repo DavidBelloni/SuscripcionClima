@@ -10,6 +10,7 @@ namespace DAL.Implementation.Memory
 {
     public class CiudadRepository : ICiudadRepository
     {
+        private readonly List<Ciudad> ciudades = new List<Ciudad>();
 
         #region
         // Instancia privada estatica y de solo lectura para el Singleton
@@ -27,11 +28,23 @@ namespace DAL.Implementation.Memory
         }
         #endregion
 
-        private readonly List<Ciudad> ciudades = new List<Ciudad>();
-
         public void Add(Ciudad ciudad)
         {
             ciudades.Add(ciudad);
+        }
+
+        public void ActualizarCiudad(Ciudad ciudad)
+        {
+            var ciudadExistente = ciudades.FirstOrDefault(c => c.Nombre == ciudad.Nombre);
+            if (ciudadExistente != null)
+            {
+                ciudadExistente.suscriptores = ciudad.suscriptores;
+            }
+            else
+            {
+                throw new Exception("Ciudad no encontrada");
+            }
+
         }
 
         public List<Ciudad> GetAll()

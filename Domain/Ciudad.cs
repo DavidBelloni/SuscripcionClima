@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace Domain
 {
-    // Es el Sujeto
+    // Es el Sujeto Observable - Objeto de interes para los Observadores
     // Mantiene una lista de suscriptores (Usuario = Observadores)
     // Tiene un metodo para cambiar el clima y notifica a los suscriptores (Usuario = Observadores)
     public class Ciudad : ISujeto
     {
-
         public string Nombre { get; set; }
         public CondicionMeteorologica ClimaActual { get; private set; }
         
-        private List<IObservador> suscriptores = new List<IObservador>();
+        public List<IObservador> suscriptores = new List<IObservador>();
 
         public Ciudad(string nombre)
         {
@@ -29,13 +28,13 @@ namespace Domain
             Notificar();
         }
 
-        public void Suscribir(IObservador usuario)
+        public void SuscribirUsuario(IObservador usuario)
         {
             if (!suscriptores.Contains(usuario))
                 suscriptores.Add(usuario);
         }
 
-        public void Desuscribir(IObservador usuario)
+        public void DesuscribirUsuario(IObservador usuario)
         {
             suscriptores.Remove(usuario);
         }

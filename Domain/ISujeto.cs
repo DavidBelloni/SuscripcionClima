@@ -9,8 +9,13 @@ namespace Domain
     // Interfaz que Implementa el Sujeto (Observable) que en este caso seria la "Ciudad"
     public interface ISujeto
     {
-        void Suscribir(IObservador usuario);
-        void Desuscribir(IObservador usuario);
+        // Permite Suscribir a sus observadores
+        void SuscribirUsuario(IObservador usuario);
+
+        // Permite Desuscribir a sus observadores
+        void DesuscribirUsuario(IObservador usuario);
+       
+        // Permite notificar a sus observadores
         void Notificar();
     }
 }
