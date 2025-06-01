@@ -1,5 +1,6 @@
 ﻿using DAL.Contracts;
 using Domain;
+using Services.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace DAL.Implementation.Memory
 
         public void ActualizarUsuario(Usuario usuario)
         {
+            // Buscamos el usuario por nombre dentro de usuarios y luego actualizamos la lista de ciudades suscritas
             var usuarioExistente = usuarios.FirstOrDefault(u => u.Nombre == usuario.Nombre);
             if (usuarioExistente != null)
             {
@@ -42,7 +44,7 @@ namespace DAL.Implementation.Memory
             }
             else
             {
-                throw new Exception("Usuario no encontrado");
+                throw new UsuarioNoEncontrado();
             }
         }
 

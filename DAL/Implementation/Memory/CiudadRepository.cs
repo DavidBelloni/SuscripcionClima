@@ -1,5 +1,6 @@
 ﻿using DAL.Contracts;
 using Domain;
+using Services.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace DAL.Implementation.Memory
 
         public void ActualizarCiudad(Ciudad ciudad)
         {
+            // Buscamos la ciudad por nombre dentro de ciudades y luego actualizamos la lista de suscriptores
             var ciudadExistente = ciudades.FirstOrDefault(c => c.Nombre == ciudad.Nombre);
             if (ciudadExistente != null)
             {
@@ -42,7 +44,8 @@ namespace DAL.Implementation.Memory
             }
             else
             {
-                throw new Exception("Ciudad no encontrada");
+                throw new CiudadNoEncontrada();
+
             }
 
         }

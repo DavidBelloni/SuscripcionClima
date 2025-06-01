@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{40BCC7B2-469C-43AA-8732-A622C98CB4FD}</ProjectGuid>
+    <ProjectGuid>{A78D2EE1-9AEF-483D-BD76-BFB37A403D53}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAL</RootNamespace>
-    <AssemblyName>DAL</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <RootNamespace>Services</RootNamespace>
+    <AssemblyName>Services</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,22 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contracts\ICiudadRepository.cs" />
-    <Compile Include="Contracts\IUsuarioRepository.cs" />
-    <Compile Include="Implementation\Memory\CiudadRepository.cs" />
-    <Compile Include="Factory\FactoryRepository.cs" />
-    <Compile Include="Implementation\Memory\UsuarioRepository.cs" />
+    <Compile Include="Exceptions\CiudadNoEncontrada.cs" />
+    <Compile Include="Exceptions\UsuarioNoEncontrado.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Domain\Domain.csproj">
-      <Project>{6d216f34-e309-4067-b7c6-f593b3d3c65f}</Project>
-      <Name>Domain</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Services\Services.csproj">
-      <Project>{a78d2ee1-9aef-483d-bd76-bfb37a403d53}</Project>
-      <Name>Services</Name>
-    </ProjectReference>
+    <Folder Include="BLL\" />
+    <Folder Include="DAL\" />
+    <Folder Include="Domain\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
